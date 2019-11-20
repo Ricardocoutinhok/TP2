@@ -1,4 +1,4 @@
-public class address {
+public class Address {
     private String streetname;
     private String doorno;
     private String postalcode;
