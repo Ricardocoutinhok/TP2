@@ -3,6 +3,12 @@ public class Address {
     private String doorno;
     private String postalcode;
 
+    public Address(String streetname, String doorno, String postalcode){
+        this.streetname=streetname;
+        this.doorno=doorno;
+        this.postalcode=postalcode;
+    }
+
 
     public String getStreetname (){
       return streetname;
