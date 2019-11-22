@@ -6,6 +6,15 @@ public class Producte {
     private int price;
     private String unityType;
 
+    public Producte (String name, String description, String picture, Category category,int price , String unityType){
+        this.name=name;
+        this.description=description;
+        this.picture=picture;
+        this.category=category;
+        this.price=price;
+        this.unityType=unityType;
+    }
+
     public String getName() {
         return name;
     }
