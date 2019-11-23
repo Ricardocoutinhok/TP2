@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String args[]) {
@@ -20,5 +23,24 @@ public class Main {
         User user1 = new User("José Manuel","josemanuel@gmail.com","josemanuel","adivinha",address1);
         User user2 = new User("Ana Maria","anamaria@gmail.com","anamaria","password",address2);
 
+        ShoppingList lista1= new ShoppingList("Lista1",user1,user2);
+        ShoppingList lista2= new ShoppingList("Lista2",user1,user2);
+
+        List<Producte> newProductList = new ArrayList<>();
+        newProductList.add(producte1);
+        newProductList.add(producte2);
+        newProductList.add(producte3);
+        newProductList.add(producte4);
+        newProductList.add(producte5);
+        newProductList.add(producte6);
+        newProductList.add(producte7);
+        lista1.setProductlist1(newProductList);
+
+        List<Producte> newProductList2 = new ArrayList<>();
+        newProductList.add(producte1);
+        newProductList.add(producte2);
+        lista1.setProductlist2(newProductList2);
+
+        System.out.println(lista1.getUsername()+"\n"+ lista1.)
     }
 }
