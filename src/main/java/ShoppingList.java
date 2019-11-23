@@ -5,11 +5,18 @@ public class ShoppingList {
 
     private String name;
     private User user;
-    private String userlist;
+    private User userlist;
     //Lista
     private List<Producte> productlist1= new ArrayList<>();
     private List<Producte> productlist2= new ArrayList<>();
     //Lista
+
+   public ShoppingList(String name, User user,User userlist){
+       this.name=name;
+       this.user=user;
+       this.userlist=userlist;
+   }
+
     public String getListname (){
         return name;
     }
