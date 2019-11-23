@@ -10,6 +10,12 @@ public class ShoppingList {
     private List<Producte> productlist1= new ArrayList<>();
     private List<Producte> productlist2= new ArrayList<>();
     //Lista
+    public void setProductlist1(List<Producte> Productlist1){
+        productlist1=Productlist1;
+    }
+    public void setProductlist2(List<Producte> Productlist2){
+        productlist2=Productlist2;
+    }
 
    public ShoppingList(String name, User user,User userlist){
        this.name=name;
