@@ -19,12 +19,14 @@ public class Main {
 
         Address address1 = new Address("Rua da Piedade","256","4586-582");
         Address address2 = new Address("Rua José Matos","2B","4235-892");
+        Address address3 = new Address("Rua do José","2C","4255-832");
 
         User user1 = new User("José Manuel","josemanuel@gmail.com","josemanuel","adivinha",address1);
         User user2 = new User("Ana Maria","anamaria@gmail.com","anamaria","password",address2);
+        User user3 = new User("José Maria","josemaria@gmail.com","josemaria","password",address3);
 
-        ShoppingList lista1= new ShoppingList("Lista1",user1,user2);
-        ShoppingList lista2= new ShoppingList("Lista2",user1,user2);
+        ShoppingList lista1= new ShoppingList("Lista1",user1);
+
 
         List<Producte> newProductList = new ArrayList<>();
         newProductList.add(producte1);
@@ -37,10 +39,35 @@ public class Main {
         lista1.setProductlist1(newProductList);
 
         List<Producte> newProductList2 = new ArrayList<>();
-        newProductList.add(producte1);
-        newProductList.add(producte2);
+        newProductList2.add(producte5);
+        newProductList2.add(producte7);
         lista1.setProductlist2(newProductList2);
 
-        System.out.println(lista1.getUsername()+"\n"+ lista1.)
+
+        List<User> newuserlist = new ArrayList<>();
+        newuserlist.add(user2);
+        newuserlist.add(user3);
+        lista1.setUserlist(newuserlist);
+
+        int i;
+        for (i=0; i< lista1.getUserlist().size(); i++){
+            User user = lista1.getUserlist().get(i);
+
+            System.out.println(user.getUsername());
+        }
+
+        System.out.println("Tem "+lista1.getTotalofproducts() +" produtos na lista de compras no total de "+ lista1.getTotalprice()+"€");
+
+        System.out.println("Tem "+lista1.getTotalofproductsonshoppingcart() +" produtos no carrinho de compras no total de "+ lista1.getTotalpriceoncart()+"€");
+        System.out.println(lista1.getPercentagecompleted() + " %");
+
+        int a;
+        
+        for (a=0; a< lista1.getProductlist1().size(); a++){
+            Producte producte = lista1.getProductlist1().get(i);
+
+            System.out.println(user.getUsername());
+        }
+
     }
 }
