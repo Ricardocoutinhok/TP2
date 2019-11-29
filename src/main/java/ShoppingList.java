@@ -5,10 +5,10 @@ public class ShoppingList {
 
     private String name;
     private User user;
-    private User userlist;
     //Lista
     private List<Producte> productlist1= new ArrayList<>();
     private List<Producte> productlist2= new ArrayList<>();
+    private List<User> userlist= new ArrayList<>();
     //Lista
     public void setProductlist1(List<Producte> Productlist1){
         productlist1=Productlist1;
@@ -16,32 +16,40 @@ public class ShoppingList {
     public void setProductlist2(List<Producte> Productlist2){
         productlist2=Productlist2;
     }
+    public List<Producte> getProductlist1(){
+        return productlist1;
+    }
+    public List<Producte> getProductlist2(){
+        return productlist2;
+    }
 
-   public ShoppingList(String name, User user,User userlist){
+   public ShoppingList(String name, User user){
        this.name=name;
        this.user=user;
-       this.userlist=userlist;
    }
 
+    public float  getTotalofproducts (){
+        return productlist1.size();
+    }
+    public float  getTotalofproductsonshoppingcart (){
+        return productlist2.size();
+    }
+    public List<User> getUserlist(){
+        return userlist;
+    }
     public String getListname (){
         return name;
     }
-    public User getUsername (){
-        return user;
+    public String getUsername (){
+        return user.getUsername();
     }
+
     public float getPercentagecompleted (){
-        float percentagem =0;
-        int produto1 = productlist1.size();
-        int producto2 = productlist2.size();
-        percentagem =producto2 * 100  / produto1;
+        float percentagem;
+        percentagem =getTotalofproductsonshoppingcart() * 100  /  getTotalofproducts();
         return percentagem;
     }
-    public List<Producte> getTotalofproducts (){
-        return productlist1;
-    }
-    public List<Producte> getTotalofproductsonshoppingcart (){
-        return productlist2;
-    }
+
     public float getTotalprice (){
         float total=0;
         if(productlist1.size() == 0){
@@ -58,8 +66,8 @@ public class ShoppingList {
         if(productlist2.size() == 0){
             return 0;
         }
-        for (int i=0; i < productlist2.size();i++){
-            totaloncart=totaloncart + productlist2.get(i).getPrice();
+        for (int a=0; a < productlist2.size();a++){
+            totaloncart=totaloncart + productlist2.get(a).getPrice();
         }
         return totaloncart;
     }
@@ -71,6 +79,18 @@ public class ShoppingList {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void setUserlist(List<User> userlist) {
+        this.userlist = userlist;
+    }
+
+    public boolean adduserlist(User user){
+        boolean success= userlist.add(user);
+        return success;
+    }
+    public boolean removeuserlist(User user){
+        return removeuserlist(user);}
+
     public boolean addProduct(Producte producte){
         boolean success= productlist1.add(producte);
         return success;
