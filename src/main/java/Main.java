@@ -1,4 +1,6 @@
+import java.sql.Savepoint;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Main {
@@ -9,7 +11,7 @@ public class Main {
         Category category3 = new Category("Bolachas","Boas","Preto");
         Category category4 = new Category("Pão","Fresco","Castanho");
 
-        Producte producte1 = new Producte("Banana", "Da Madeira", "Imagem", category2, 16, "kg");
+        Produsdcte producte1 = new Producte("Banana", "Da Madeira", "Imagem", category2, 16, "kg");
         Producte producte2 = new Producte("Alface","Fresca","Imagem",category1,32,"kg");
         Producte producte3 = new Producte("Maça","Vermelha","Imagem",category2,26,"kg");
         Producte producte4 = new Producte("Bolacha Maria","Tostada","imagem",category3,68,"un");
@@ -26,6 +28,7 @@ public class Main {
         User user3 = new User("José Maria","josemaria@gmail.com","josemaria","password",address3);
 
         ShoppingList lista1= new ShoppingList("Lista1",user1);
+
 
 
         List<Producte> newProductList = new ArrayList<>();
@@ -53,20 +56,54 @@ public class Main {
         for (i=0; i< lista1.getUserlist().size(); i++){
             User user = lista1.getUserlist().get(i);
 
-            System.out.println(user.getUsername());
+            System.out.println(user.getUsername() +"\n");
         }
 
         System.out.println("Tem "+lista1.getTotalofproducts() +" produtos na lista de compras no total de "+ lista1.getTotalprice()+"€");
 
         System.out.println("Tem "+lista1.getTotalofproductsonshoppingcart() +" produtos no carrinho de compras no total de "+ lista1.getTotalpriceoncart()+"€");
         System.out.println(lista1.getPercentagecompleted() + " %");
+        /*
+        HashMap< Category,List<Producte>> map1 = new HashMap<Category, List<Producte>>();
+        */
+
+        HashMap< Integer,String> map1 = new HashMap<Integer, String>();
+
+        /*
+        int a;
+        for (a=0; a< lista1.getProductlist1().size(); a++) {
+            Producte producte = lista1.getProductlist1().get(a);
+            if (map1.containsValue(producte.getCategory())) {
+
+            } else {
+                map1.put(ca, producte.getCategory());
+            }
+            System.out.println(map1);
+        }*/
 
         int a;
-        
-        for (a=0; a< lista1.getProductlist1().size(); a++){
-            Producte producte = lista1.getProductlist1().get(i);
+        for (a=0; a< lista1.getProductlist1().size(); a++) {
+            Producte producte = lista1.getProductlist1().get(a);
+            if (map1.containsValue(producte.getCategory())) {
 
-            System.out.println(user.getUsername());
+            } else {
+                map1.put(a, producte.getCategory());
+            }
+            System.out.println(map1);
+        }
+
+
+        System.out.println(map1.size());
+        int b;
+        int c;
+        for (c=0; c <= map1.size()+1;c++) {
+            for (b = 0; b < lista1.getProductlist1().size(); b++) {
+                Producte producte = lista1.getProductlist1().get(b);
+                if (producte.getCategory().equals(map1.get(c))) {
+                    System.out.println("Na Categoria " +producte.getCategory()+ " tem "+ producte.getName());
+                }
+
+            }
         }
 
     }
