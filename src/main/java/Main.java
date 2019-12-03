@@ -11,7 +11,7 @@ public class Main {
         Category category3 = new Category("Bolachas","Boas","Preto");
         Category category4 = new Category("Pão","Fresco","Castanho");
 
-        Produsdcte producte1 = new Producte("Banana", "Da Madeira", "Imagem", category2, 16, "kg");
+        Producte producte1 = new Producte("Banana", "Da Madeira", "Imagem", category2, 16, "kg");
         Producte producte2 = new Producte("Alface","Fresca","Imagem",category1,32,"kg");
         Producte producte3 = new Producte("Maça","Vermelha","Imagem",category2,26,"kg");
         Producte producte4 = new Producte("Bolacha Maria","Tostada","imagem",category3,68,"un");
